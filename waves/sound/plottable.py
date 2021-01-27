@@ -25,10 +25,12 @@ class PlottableSound:
         fig.suptitle(title)
 
         for i, channel in enumerate(channels):
+            time_sequence = list(channel.time_sequence)
+            
             color = "tab:red" if i % 2 else "tab:blue"
             label = ("L" if i % 2 == 0 else "R") + str(round((i + 1.1) / 2))
             axes[i].plot(
-                channel.time_sequence,
+                time_sequence,
                 channel.data,
                 color=color,
                 linewidth=0.3,
@@ -42,11 +44,11 @@ class PlottableSound:
                     color=color,
                     fontweight="bold"
                 )
-            axes[i].set_xlim(0, channel.time_sequence[-1])
+            axes[i].set_xlim(0, time_sequence[-1])
             axes[i].set_xticks(
                 np.arange(
                     0,
-                    channel.time_sequence[-1],
+                    time_sequence[-1],
                     round(channel.duration / 15, 1)
                 )
             )

@@ -5,6 +5,8 @@ import wave
 
 import numpy as np
 
+import pysndfile as snd
+
 
 class SoundIO:
     """Adds class methods for sound instance creations from files or data
@@ -19,8 +21,44 @@ class SoundIO:
     
     def _init_f(self):
         if not self.f:
-            self.f = wave.open(self.filename, "r")
+            self.f = snd.PySndfile(filename, "r")
+        else:
+            self.f.seek(0, mode="r")
     
+    @classmethod
+    def from_sndbuffer(cls, f):
+        from waves.sound.main import Sound
+            
+        encoding = f.encoding_str()
+        if encoding.startswith("pcm"):
+            bits = encoding.replace("pcm", "").replace("24", "32").replace("u8", "64")
+            dtype = getattr(np, f"int{bits}")
+            n_bytes = int(int(bits) / 4)
+        elif encoding.startswith("float"):
+            dtype = getattr(np, encoding)
+            n_bytes = int(int(encoding.replace("float", "")) / 4)
+        else:
+            dtype = np.float64
+            n_bytes = 8
+        
+        n_channels, fps, n_frames = (f.channels(), f.samplerate(), f.frames())
+        filename, metadata = (f.get_name(), f.get_strings())
+        
+        return Sound(
+            n_frames=n_frames,
+            n_bytes=n_bytes,
+            n_channels=n_channels,
+            fps=fps,
+            dtype=dtype,
+            filename=filename,
+            f=f,
+            metadata=metadata,
+        )
+    
+    @classmethod
+    def from_file(cls, filename):
+        return cls.from_sndbuffer(snd.PySndfile(filename, "r"))
+
     # ------------------ GETTERS -------------------
     
     @property
@@ -28,8 +66,34 @@ class SoundIO:
         """Returns the data array of the sound."""
         if not self.time_to_frame:
             self._init_f()
+            data = self.f.read_frames(nframes=self.n_frames, dtype=self.dtype)
+            self.f.seek(0, mode="r")
+            return data
+        else:
+            return np.array(list(self.time_to_frame(t) for t in self.time_sequence))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ######################## DEPRECATED #############################
+    
+    
+    
+    # ------------------ GETTERS -------------------
+    
+    @property
+    def _data(self):
+        """Returns the data array of the sound."""
+        if not self.time_to_frame:
+            self._init_f()
 
-            hexdata = self.f.readframes(-1)
+            hexdata = self.f.readframes()
             self.f.setpos(0)
             data = np.frombuffer(hexdata, getattr(np, f"int{self.n_bytes ** 4}"))
             
@@ -38,8 +102,8 @@ class SoundIO:
                 data = data.T
             return data
         else:
-            raise NotImplementedError
-    
+            return np.array(list(self.time_to_frame(t) for t in self.time_sequence))
+
     @property
     def dataframes(self):
         """Returns each frame of the sound in a Numpy array with shape
@@ -144,7 +208,7 @@ class SoundIO:
     # ------------------ READ methods -------------------
     
     @classmethod
-    def from_file(cls, filename, n_frames=-1):
+    def _from_file(cls, filename, n_frames=-1):
         """Opens a sound from a file.
         
         Parameters
@@ -232,7 +296,7 @@ class SoundIO:
         )
     
     @classmethod
-    def from_datatimes(cls, frame_time_to_data, **kwargs):
+    def from_datatimes(cls, frame_time_to_data, n_bytes=2, **kwargs):
         """Build a sound object reading from frames arrays data, one array data by frame
         given a time.
         
@@ -240,20 +304,25 @@ class SoundIO:
         ----------
         
         frame_time_to_data : function
-          Function that takes an argument ``frame_time``, which refers to the time
-          of the frame and returns the numerical data for that frame. The returned
-          value must be a subscriptable object with the data for the frame at given
-          time for each channel.
+          Function that takes an argument which refers to the time of the frame and
+          returns the numerical data for that frame. The returned value must be a
+          subscriptable object with the data for the frame at given time for each
+          channel.
         """
         from waves.sound.mono import MonoSound
         
         # get first timeframe to get sound data
         first_frame = frame_time_to_data(0)
+        if isinstance(first_frame, numbers.Number):
+            n_channels = 1
+        else:
+            n_channels = len(first_frame)
         
-        n_channels = len(first_frame)
+        print(type(first_frame))
+    
         if n_channels == 1:
             return MonoSound(
-                n_bytes=first_frame[0].nbytes,
+                n_bytes=n_bytes,
                 time_to_frame=frame_time_to_data,
                 **kwargs
             )
@@ -266,7 +335,8 @@ class SoundIO:
         return StereoSound([
             MonoSound(
                 n_bytes=first_frame[0].nbytes,
-                time_to_frame=build_time_to_frame_function(i)
+                time_to_frame=build_time_to_frame_function(i),
+                **kwargs,
             ) for i in range(n_channels)
         ])
     

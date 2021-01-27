@@ -6,6 +6,8 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
+from waves import Sound
+
 """
 import pygame
 pygame.mixer.quit()
@@ -34,7 +36,7 @@ with wave.open("kick1.wav", "r") as f:
     plt.show()
 """
 
-"""
+
 import sys
 from types import ModuleType, FunctionType
 from gc import get_referents
@@ -61,12 +63,12 @@ def getsize(obj):
         objects = get_referents(*need_referents)
     return size
 
+"""
 from waves import Sound
 
 with wave.open("stereo.wav") as f:
     print(f.readframes(2))
     f.setpos(0)
-
 sound = Sound.from_file("mono.wav")
 sound.play()
 
@@ -88,24 +90,9 @@ for i in range(0, SAMPLE_LEN):
 print(values)
 """
 
-from pyo import *
+import pysndfile as snd
 
-s = Server().boot()
-s.amp = 0.1
+sound = Sound.from_file("stereo.wav")
+sound.play()
 
-# Creates a sine wave as the source to process.
-a = Sine().out()
-
-# Passes the sine wave through an harmonizer.
-h1 = Harmonizer(a).out()
-
-# Then the harmonized sound through another harmonizer.
-h2 = Harmonizer(h1).out()
-
-# And again...
-h3 = Harmonizer(h2).out()
-
-# And again...
-h4 = Harmonizer(h3).out()
-
-s.gui(locals())
+#print(getsize(f))

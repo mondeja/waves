@@ -10,8 +10,8 @@ from waves.sound.plottable import PlottableSound
 from waves.sound.io import SoundIO
 
 
-class MonoSound(SoundIO, PlayableSound, PlottableSound):
-    """Base class for a channel of sound.
+class Sound(SoundIO, PlayableSound, PlottableSound):
+    """Base class for a sound.
     
     Parameters
     ----------
@@ -29,25 +29,30 @@ class MonoSound(SoundIO, PlayableSound, PlottableSound):
         self,
         n_frames=None,
         n_bytes=2,
+        n_channels=None,
         fps=44100,
+        dtype=np.float64,
         filename=None,
         f=None,
-        time_to_frame=None
+        time_to_frame=None,
+        metadata={}
     ):
         self.n_frames = n_frames
         self.n_bytes = n_bytes
         self.fps = fps
+        self.n_channels = n_channels
+        self.dtype = dtype
 
-        self.filename = filename
-        self.f = f
         self.time_to_frame = time_to_frame
         
-        self.n_channels = 1
+        self.filename = filename
+        self.f = f
+        self.metadata = metadata
 
     @property
     def n_bits(self):
         """Returns the number of bits for the width of the sound."""
-        return self.n_bytes ** 4
+        return self.n_bytes << 2
         
     @property
     def duration(self):

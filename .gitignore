@@ -1,0 +1,2 @@
+*.wav
+!/tests/files/*.wav
