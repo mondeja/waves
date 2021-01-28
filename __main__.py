@@ -90,9 +90,34 @@ for i in range(0, SAMPLE_LEN):
 print(values)
 """
 
+"""
 import pysndfile as snd
 
-sound = Sound.from_file("stereo.wav")
-sound.play()
+sound = Sound.from_file("tests/files/stereo.wav")
+sound.play(wait=False)
+sound.plot()
+"""
+"""
+make_frame = lambda t: np.array([
+    np.sin(440 * 2 * np.pi * t),
+    np.sin(880 * 2 * np.pi * t),
+]).T.copy(order="C"),
+"""
 
+# mono
+duration, fps, frequency, volume = (3, 44100, 110, 0.5)
+t = np.linspace(0., duration, duration * fps)
+amplitude = np.iinfo(np.int16).max * volume
+data = (amplitude * np.sin(frequency * 2. * np.pi * t)).astype(np.int16)
+sound = Sound.from_dataframes(lambda i: data[i], fps=fps)
+
+# stereo
+duration, fps, frequencies, volume = (3, 44100, (110, 440), 0.5)
+t = np.linspace(0., duration, duration * fps)
+amplitude = np.iinfo(np.int16).max * volume
+data_left = (amplitude * np.sin(frequencies[0] * 2. * np.pi * t)).astype(np.int16)
+data_right = (amplitude * np.sin(frequencies[1] * 2. * np.pi * t)).astype(np.int16)
+sound = Sound.from_dataframes(lambda i: np.array([data_left[i], data_right[i]]), fps=fps)
+
+sound.plot()
 #print(getsize(f))

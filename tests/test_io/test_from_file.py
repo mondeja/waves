@@ -11,7 +11,7 @@ def test_from_file_mono(mono_filepath):
     sound = Sound.from_file(mono_filepath)
     
     assert sound.n_frames == 106022
-    assert sound.n_bytes == 4
+    assert sound.n_bytes == 2
     assert sound.n_bits == 16
     assert sound.fps == 44100
     assert sound.n_channels == 1
@@ -33,7 +33,7 @@ def test_from_file_stereo(stereo_filepath):
     sound = Sound.from_file(stereo_filepath)
     
     assert sound.n_frames == 55216
-    assert sound.n_bytes == 4
+    assert sound.n_bytes == 2
     assert sound.n_bits == 16
     assert sound.fps == 44100
     assert sound.n_channels == 2

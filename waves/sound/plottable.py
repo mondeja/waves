@@ -13,9 +13,7 @@ class PlottableSound:
         title : str, optional
           Figure title.
         """
-        channels = [self] if not hasattr(self, "channels") else self.channels
-
-        fig, axes = plt.subplots(len(channels))
+        fig, axes = plt.subplots(self.n_channels)
         if not isinstance(axes, np.ndarray):
             # for mono, axes is a `matplotlib.axes._subplots.AxesSubplot` object
             axes = np.array([axes])
@@ -23,15 +21,17 @@ class PlottableSound:
         else:
             _need_label = True
         fig.suptitle(title)
+        
+        data = [self.data] if self.n_channels == 1 else self.data 
 
-        for i, channel in enumerate(channels):
-            time_sequence = list(channel.time_sequence)
+        for i in range(self.n_channels):
+            time_sequence = list(self.time_sequence)
             
             color = "tab:red" if i % 2 else "tab:blue"
             label = ("L" if i % 2 == 0 else "R") + str(round((i + 1.1) / 2))
             axes[i].plot(
                 time_sequence,
-                channel.data,
+                data[i],
                 color=color,
                 linewidth=0.3,
             )
@@ -49,7 +49,7 @@ class PlottableSound:
                 np.arange(
                     0,
                     time_sequence[-1],
-                    round(channel.duration / 15, 1)
+                    round(self.duration / 15, 1)
                 )
             )
 

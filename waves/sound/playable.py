@@ -1,6 +1,4 @@
 """Playable sounds interface."""
-import numbers
-
 import numpy as np
 
 from waves.players.pygame import play_sound
@@ -24,12 +22,12 @@ class PlayableSound:
           an asynchronous playing. Pass a number if you want to wait an exact time
           instead of the duration of the sound.
         """
+        print("sound.play() -> bytes:", self.n_bytes, "| channels:", self.n_channels)
         play_sound(
-            self.data,
+            self.dataframes,
             frequency=self.fps,
-            size=(self.n_bytes * -4) if np.issubdtype(self.dtype, np.signedinteger)
-            else (self.n_bytes << 2),
-            channels=self.n_channels,
-            wait=wait if isinstance(wait, numbers.Number) else self.duration,
+            size=(self.n_bytes << 3) * (-1 if np.issubdtype(self.dtype, np.signedinteger) else 1),
+            n_channels=self.n_channels,
+            wait=wait if not isinstance(wait, bool) else self.duration,
             **kwargs
         )

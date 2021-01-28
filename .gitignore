@@ -1,2 +1,3 @@
 *.wav
 !/tests/files/*.wav
+/__main__.py

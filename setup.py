@@ -62,7 +62,7 @@ setup(
     version=ABOUT["__version__"],
     description=ABOUT["__description__"],
     long_description=LONG_DESCRIPTION,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     author=AUTHOR,
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,

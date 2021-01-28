@@ -1,12 +1,14 @@
-waves
-=====
-
-.. include:: ../README.md
-   :start-after: <!--start-desc-->
-   :end-before: <!--end-desc-->
+.. include:: ../README.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: Getting started
-   
+
    install
+   quickstart
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference
+
+   ref/sound
