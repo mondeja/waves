@@ -106,10 +106,18 @@ class Sound(SoundIO, PlayableSound, PlottableSound):
         """
         return (self.n_frames / self.fps) if self.n_frames else math.inf
     
+    @duration.setter
+    def duration(self, duration):
+        self.n_frames = duration * self.fps
+    
+    def with_duration(self, duration):
+        self.n_frames = duration * self.fps
+        return self
+    
     @property
     def time_sequence(self):
-        """Generates a linear range which represents the sequence for the time
-        of the sound.
+        """Generates a linear range which represents the sequence for the time of
+        the sound.
         
         The range will be infinite for sounds created using functions (only if you
         haven't extracted the data before by calling :py:property:`Sound.data`),

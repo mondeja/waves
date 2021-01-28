@@ -213,6 +213,28 @@ class SoundIO:
           and returns the numerical data for that frame. The returned value must be a
           subscriptable object with the data for the frame at given time for each
           channel.
+        
+        Examples
+        --------
+        
+        >>> # mono generating sine wave
+        >>> duration, fps, frequency, volume = (3, 44100, 110, 0.5)
+        >>> amplitude = np.iinfo(np.int16).max * volume
+        >>> time_to_frame = lambda t: (
+        ...     np.sin(frequency * 2 * np.pi * t) * amplitude
+        ... ).astype(np.int16),
+        >>> Sound.from_datatimes(time_to_frame, fps=fps).with_duration(duration)
+        <waves.sound.main.Sound object at ...>
+        
+        >>> # stereo generating sine waves
+        >>> duration, fps, frequencies, volume = (3, 44100, (110, 440), 0.5)
+        >>> amplitude = np.iinfo(np.int16).max * volume
+        >>> time_to_frame = [
+        ...     (np.sin(frequencies[0] * 2 * np.pi * t) * amplitude).astype(np.int16),
+        ...     (np.sin(frequencies[1] * 2 * np.pi * t) * amplitude).astype(np.int16),
+        ... ]
+        >>> Sound.from_datatimes(time_to_frame, fps=fps).with_duration(duration)
+        <waves.sound.main.Sound object at ...>
         """
         from waves.sound.main import Sound
         

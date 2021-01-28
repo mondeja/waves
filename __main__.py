@@ -105,6 +105,7 @@ make_frame = lambda t: np.array([
 """
 
 # mono
+"""
 duration, fps, frequency, volume = (3, 44100, 110, 0.5)
 t = np.linspace(0., duration, duration * fps)
 amplitude = np.iinfo(np.int16).max * volume
@@ -118,6 +119,16 @@ amplitude = np.iinfo(np.int16).max * volume
 data_left = (amplitude * np.sin(frequencies[0] * 2. * np.pi * t)).astype(np.int16)
 data_right = (amplitude * np.sin(frequencies[1] * 2. * np.pi * t)).astype(np.int16)
 sound = Sound.from_dataframes(lambda i: np.array([data_left[i], data_right[i]]), fps=fps)
+"""
 
-sound.plot()
-#print(getsize(f))
+duration, fps, frequencies, volume = (3, 44100, (110, 440), 0.5)
+amplitude = np.iinfo(np.int16).max * volume
+sound = Sound.from_datatimes(
+    lambda t: [
+        (np.sin(frequencies[0] * 2 * np.pi * t) * amplitude).astype(np.int16),
+        (np.sin(frequencies[1] * 2 * np.pi * t) * amplitude).astype(np.int16),
+    ],
+    fps=fps
+).with_duration(duration)
+
+sound.play()

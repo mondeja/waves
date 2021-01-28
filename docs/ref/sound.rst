@@ -39,6 +39,7 @@ Sound
    frame.
 
    .. automethod:: Sound.from_dataframes
+   .. automethod:: Sound.from_datatimes
 
    .. raw:: html
 
