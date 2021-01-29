@@ -23,6 +23,7 @@ class PlayableSound:
           instead of the duration of the sound.
         """
         print("sound.play() -> bytes:", self.n_bytes, "| channels:", self.n_channels)
+        print(self.dataframes)
         play_sound(
             self.dataframes,
             frequency=self.fps,

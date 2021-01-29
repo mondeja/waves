@@ -9,9 +9,13 @@ from waves import Sound
 
 
 def test_from_datatimes_mono():
-    fps, frequency = (44100, 880)
+    fps, frequency, volume = (44100, 110, 0.5)
+    amplitude = np.iinfo(np.int16).max * volume
 
-    time_to_frame = lambda t: np.sin(frequency * 2 * np.pi * t).astype(np.int16)
+    def time_to_frame(t):
+        return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(
+            np.int16
+        )
 
     sound = Sound.from_datatimes(time_to_frame, fps=fps)
     
@@ -25,15 +29,16 @@ def test_from_datatimes_mono():
 
     
 def test_from_datatimes_stereo():
-    fps, frequencies = (44100, (110, 440))
+    fps, frequencies, volume  = (44100, (110, 440), 0.5)
+    amplitude = np.iinfo(np.int16).max * volume
     
-    time_to_frame_left = lambda t: np.sin(
+    time_to_frame_left = lambda t: (np.sin(
         frequencies[0] * 2 * np.pi * t
-    ).astype(np.int16)
+    ) * amplitude).astype(np.int16)
     
-    time_to_frame_right = lambda t: np.sin(
+    time_to_frame_right = lambda t: (np.sin(
         frequencies[1] * 2 * np.pi * t
-    ).astype(np.int16)
+    ) * amplitude).astype(np.int16)
 
     sound = Sound.from_datatimes(
         lambda t: [time_to_frame_left(t), time_to_frame_right(t)], fps=fps

@@ -32,14 +32,23 @@ Sound
 
    .. raw:: html
 
-      <h4 class="centered" style="padding-top: 33px;">GENERATORS</h4>
+      <h4 class="centered" style="padding-top: 33px;">SOUND GENERATORS</h4>
 
    Generator class methods creates a :py:class:`waves.Sound` instance using an
    interpolator function which build the array of values for the sound for each
    frame.
 
-   .. automethod:: Sound.from_dataframes
+   By convenience, the next rule is follow:
+
+   - If the sound is mono, the generator function must return one value at a
+     time or frame.
+   - If the sound is stereo, the generator function must return one Numpy array
+     for each time or frame whose length will determine the number of channels.
+
    .. automethod:: Sound.from_datatimes
+   .. automethod:: Sound.from_dataframes
+   .. automethod:: Sound.from_bytetimes
+   .. automethod:: Sound.from_byteframes
 
    .. raw:: html
 
@@ -84,3 +93,7 @@ Sound
       returns one Numpy array per frame, but if the sound is mono returns one
       Numpy array with the values of the sound for the channel, one array for
       each frame.
+
+   .. autoproperty:: Sound.iter_dataframes
+   .. autoproperty:: Sound.iter_datatimes
+   .. autoproperty:: Sound.iter_chunks

@@ -57,10 +57,12 @@ class SoundIO:
         Examples
         --------
         
-        >>> Sound.from_file("stereo.wav")
+        >>> from waves import Sound
+        >>>
+        >>> Sound.from_file("tests/files/stereo.wav")
         <waves.sound.main.Sound object at ...>
-        
-        >>> Sound.from_file("mono.wav")
+        >>>
+        >>> Sound.from_file("tests/files/mono.wav")
         <waves.sound.main.Sound object at ...>
         """
         try:
@@ -92,9 +94,12 @@ class SoundIO:
         --------
         
         >>> import pysndfile as snd
-        >>> from_sndbuffer(snd.PySndfile("stereo.wav", "r"))
+        >>> from waves import Sound
+        >>>
+        >>> Sound.from_sndbuffer(snd.PySndfile("tests/files/stereo.wav", "r"))
         <waves.sound.main.Sound object at ...>
-        >>> from_sndbuffer(snd.PySndfile("mono.wav", "rw"))
+        >>>
+        >>> Sound.from_sndbuffer(snd.PySndfile("tests/files/mono.wav", "r"))
         <waves.sound.main.Sound object at ...>
         """
         from waves.sound.main import Sound
@@ -128,7 +133,7 @@ class SoundIO:
     # ------------------ GENERATORS --------------------
     
     @classmethod
-    def from_dataframes(cls, index_to_frame, fps=44100, metadata={}, **kwargs):
+    def from_dataframes(cls, index_to_frame, fps=44100, **kwargs):
         """Build a sound object reading from frames arrays data, one array of data
         by frame index.
         
@@ -144,24 +149,32 @@ class SoundIO:
         fps : int, optional
           Number of frames per second of the resulting sound.
         
-        metadata : dict, optional
-          Meatadata for the sound, which will be included when saving it.
-        
         Examples
         --------
         
         >>> # mono from file
         >>> import wave
-        >>> import numpy a np
-        >>> f = wave.open("mono.wav", "rb")
+        >>> import numpy as np
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/mono.wav", "rb")
         >>> hexdata = f.readframes(-1)
         >>> data = np.frombuffer(hexdata, getattr(np, f"int{f.getsampwidth() << 3}"))
-        >>> Sound.from_dataframes(lambda i: data[i], f.getframerate())
+        >>>
+        >>> def index_to_frame(i):
+        ...     try:
+        ...         return data[i]
+        ...     except IndexError:
+        ...         raise StopIteration
+        >>>
+        >>> Sound.from_dataframes(index_to_frame, f.getframerate())
         <waves.sound.main.Sound object at ...>
         >>> f.close()
         
         >>> # mono from generated data
         >>> import numpy as np
+        >>> from waves import Sound
+        >>>
         >>> duration, fps, frequency, volume = (3, 44100, 110, 0.5)
         >>> t = np.linspace(0., duration, duration * fps)
         >>> amplitude = np.iinfo(np.int16).max * volume
@@ -172,16 +185,27 @@ class SoundIO:
         >>> # stereo from file
         >>> import wave
         >>> import numpy as np
-        >>> f = wave.open("stereo.wav", "rb")
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/stereo.wav", "rb")
         >>> hexdata = f.readframes(-1)
         >>> data = np.frombuffer(hexdata, getattr(np, f"int{f.getsampwidth() << 3}"))
         >>> data.shape = (-1, f.getnchannels())
-        >>> Sound.from_dataframes(lambda i: data[i], f.getframerate())
+        >>>
+        >>> def index_to_frame(i):
+        ...     try:
+        ...         return data[i]
+        ...     except IndexError:
+        ...         raise StopIteration
+        >>>
+        >>> Sound.from_dataframes(index_to_frame, f.getframerate())
         <waves.sound.main.Sound object at ...>
         >>> f.close()
         
         >>> # stereo from generated data
         >>> import numpy as np
+        >>> from waves import Sound
+        >>>
         >>> duration, fps, frequencies, volume = (3, 44100, (110, 440), 0.4)
         >>> t = np.linspace(0., duration, duration * fps)
         >>> amplitude = np.iinfo(np.int16).max * volume
@@ -201,38 +225,53 @@ class SoundIO:
         )
 
     @classmethod
-    def from_datatimes(cls, time_to_frame, fps=44100, metadata={}, **kwargs):
-        """Build a sound object reading from frames arrays data, one array data by frame
-        given a time.
+    def from_datatimes(cls, time_to_frame, fps=44100, **kwargs):
+        """Build a sound object reading from frames arrays data, one array data by
+        frame given a time.
         
         Parameters
         ----------
         
         time_to_frame : function
-          Function that takes an argument ``t`` which refers to the time of the frame
-          and returns the numerical data for that frame. The returned value must be a
-          subscriptable object with the data for the frame at given time for each
-          channel.
+          Function that takes an argument ``t`` which refers to the second of the
+          frame and returns the numerical data for that frame. The returned value
+          must be a subscriptable object with the data for the frame at given time
+          for each channel.
+        
+        fps : int, optional
+          Number of frames per second of the resulting sound.
         
         Examples
         --------
         
         >>> # mono generating sine wave
+        >>> import numpy as np
+        >>> from waves import Sound
+        >>>
         >>> duration, fps, frequency, volume = (3, 44100, 110, 0.5)
         >>> amplitude = np.iinfo(np.int16).max * volume
-        >>> time_to_frame = lambda t: (
-        ...     np.sin(frequency * 2 * np.pi * t) * amplitude
-        ... ).astype(np.int16),
+        >>> 
+        >>> def time_to_frame(t):
+        ...     return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(
+        ...         np.int16
+        ...     )
+        >>>
         >>> Sound.from_datatimes(time_to_frame, fps=fps).with_duration(duration)
         <waves.sound.main.Sound object at ...>
         
         >>> # stereo generating sine waves
+        >>> import numpy as np
+        >>> from waves import Sound
+        >>>
         >>> duration, fps, frequencies, volume = (3, 44100, (110, 440), 0.5)
         >>> amplitude = np.iinfo(np.int16).max * volume
-        >>> time_to_frame = [
-        ...     (np.sin(frequencies[0] * 2 * np.pi * t) * amplitude).astype(np.int16),
-        ...     (np.sin(frequencies[1] * 2 * np.pi * t) * amplitude).astype(np.int16),
-        ... ]
+        >>>
+        >>> def time_to_frame(t):
+        ...     return [
+        ...         (np.sin(frequencies[0] * 2 * np.pi * t) * amplitude).astype(np.int16),
+        ...         (np.sin(frequencies[1] * 2 * np.pi * t) * amplitude).astype(np.int16),
+        ...     ]
+        >>>
         >>> Sound.from_datatimes(time_to_frame, fps=fps).with_duration(duration)
         <waves.sound.main.Sound object at ...>
         """
@@ -256,29 +295,244 @@ class SoundIO:
             fps=fps,
             dtype=dtype,
             time_to_frame=time_to_frame,
-            metadata=metadata,
             **kwargs
         )
+    
+    @classmethod
+    def from_byteframes(cls, index_to_hexframe, fps=44100, **kwargs):
+        """Build a sound object reading from frames bytes, one hex data chunk by frame
+        index.
+        
+        Parameters
+        ----------
+        
+        index_to_hexframe : function
+          Function that takes an argument ``i``, which refers to the index of the
+          frame starting at 0 and returns the bytes object for that frame. The
+          returned value must be a subscriptable object with the bytes for the frame
+          for each channel.
+        
+        fps : int, optional
+          Number of frames per second of the resulting sound.
+        
+        Examples
+        --------
+        
+        >>> # mono from file
+        >>> import wave, struct
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/mono.wav", "rb")
+        >>> hexdata = f.readframes(-1)
+        >>> hexframes = []
+        >>> for bytes_frame in struct.iter_unpack(f"{f.getsampwidth()}c", hexdata):
+        ...     hexframes.append(b"".join(bytes_frame))
+        >>>
+        >>> def index_to_hexframe(i):
+        ...     try:
+        ...         return hexframes[i]
+        ...     except IndexError:
+        ...         raise StopIteration
+        >>>
+        >>> Sound.from_byteframes(index_to_hexframe, fps=f.getframerate())
+        <waves.sound.main.Sound object at ...>
+        >>> f.close()
+        
+        >>> # stereo from file
+        >>> import wave, struct
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/stereo.wav", "rb")
+        >>> hexdata = f.readframes(-1)
+        >>> n_channels, n_bytes = (f.getnchannels(), f.getsampwidth())
+        >>>
+        >>> hexframes = []
+        >>> for bytes_frame in struct.iter_unpack(f"{n_bytes * n_channels}c", hexdata):
+        ...     hexframe = []
+        ...     for channel_index in range(n_channels):
+        ...         start = channel_index * n_bytes
+        ...         end = start + n_bytes
+        ...         hexframe.append(b"".join(bytes_frame[start: end]))
+        ...     hexframes.append(hexframe)
+        >>>
+        >>> def index_to_hexframe(i):
+        ...     try:
+        ...         return hexframes[i]
+        ...     except IndexError:
+        ...         raise StopIteration
+        >>>
+        >>> Sound.from_byteframes(index_to_hexframe, fps=f.getframerate())
+        <waves.sound.main.Sound object at ...>
+        >>> f.close()
+        """
+        from waves.sound.main import Sound
+    
+        # get first frame so we can retrieve number of bytes and channels
+        hexdata = index_to_hexframe(0)
+        if isinstance(hexdata, bytes):
+            # mono
+            n_channels = 1
+            n_bytes = len(hexdata)
+        else:
+            # stereo
+            n_channels = len(hexdata)
+            n_bytes = len(hexdata[0])
+        dtype = kwargs.get("dtype", getattr(np, f"int{n_bytes << 3}"))
+        
+        if n_channels == 1:        
+            return Sound(
+                fps=fps,
+                n_bytes=n_bytes,
+                n_channels=n_channels,
+                time_to_frame=lambda t: np.frombuffer(
+                    index_to_hexframe(int(round(t * fps))), dtype=dtype
+                )[0],
+                dtype=dtype,
+                **kwargs
+            )
+            
+        def time_to_frame(t):
+            frame_hexdata =  index_to_hexframe(int(round(t * fps)))
+            return np.array([
+                np.frombuffer(frame_hexdata[0], dtype=dtype)[0],
+                np.frombuffer(frame_hexdata[1], dtype=dtype)[0],
+            ])
+        
+        return Sound(
+            fps=fps,
+            n_bytes=n_bytes,
+            n_channels=n_channels,
+            time_to_frame=time_to_frame,
+            dtype=dtype,
+            **kwargs
+        )
+    
+    @classmethod
+    def from_bytetimes(cls, time_to_hexframe, fps=44100, **kwargs):
+        """Build a sound object reading from frames bytes, one hex data chunk by frame
+        at a time.
+        
+        Parameters
+        ----------
+        
+        time_to_hexframe : function
+          Function that takes an argument ``t``, which refers to the second of the
+          frame starting at 0 and returns the bytes object for that frame. The
+          returned value must be a subscriptable object with the bytes for the frame
+          for each channel.
+        
+        fps : int, optional
+          Number of frames per second of the resulting sound.
+        
+        Examples
+        --------
+        
+        >>> # mono from file
+        >>> import wave, struct
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/mono.wav", "rb")
+        >>> fps = f.getframerate()
+        >>> hexdata = f.readframes(-1)
+        >>> hexframes = []
+        >>> for bytes_frame in struct.iter_unpack(f"{f.getsampwidth()}c", hexdata):
+        ...     hexframes.append(b"".join(bytes_frame))
+
+        >>> Sound.from_bytetimes(lambda t: hexframes[int(round(t * fps))], fps=fps)
+        <waves.sound.main.Sound object at ...>
+        >>> f.close()
+        
+        >>> # stereo from file
+        >>> import wave, struct
+        >>> from waves import Sound
+        >>>
+        >>> f = wave.open("tests/files/stereo.wav", "rb")
+        >>> hexdata, fps = (f.readframes(-1), f.getframerate())
+        >>> n_channels, n_bytes = (f.getnchannels(), f.getsampwidth())
+        >>>
+        >>> hexframes = []
+        >>> for bytes_frame in struct.iter_unpack(f"{n_bytes * n_channels}c", hexdata):
+        ...     hexframe = []
+        ...     for channel_index in range(n_channels):
+        ...         start = channel_index * n_bytes
+        ...         end = start + n_bytes
+        ...         hexframe.append(b"".join(bytes_frame[start: end]))
+        ...     hexframes.append(hexframe)
+        >>> Sound.from_bytetimes(lambda t: hexframes[int(round(t * fps))], fps=fps)
+        <waves.sound.main.Sound object at ...>
+        >>> f.close()
+        """
+        from waves.sound.main import Sound
+    
+        # get first frame so we can retrieve number of bytes and channels
+        hexdata = time_to_hexframe(0)
+        if isinstance(hexdata, bytes):
+            # mono
+            n_channels = 1
+            n_bytes = len(hexdata)
+        else:
+            # stereo
+            n_channels = len(hexdata)
+            n_bytes = len(hexdata[0])
+        dtype = kwargs.get("dtype", getattr(np, f"int{n_bytes << 3}"))
+        
+        if n_channels == 1:        
+            return Sound(
+                fps=fps,
+                n_bytes=n_bytes,
+                n_channels=n_channels,
+                time_to_frame=lambda t: np.frombuffer(
+                    time_to_hexframe(t), dtype=dtype
+                )[0],
+                dtype=dtype,
+                **kwargs
+            )
+            
+        def time_to_frame(t):
+            frame_hexdata =  time_to_hexframe(t)
+            return np.array([
+                np.frombuffer(frame_hexdata[0], dtype=dtype)[0],
+                np.frombuffer(frame_hexdata[1], dtype=dtype)[0],
+            ])
+        
+        return Sound(
+            fps=fps,
+            n_bytes=n_bytes,
+            n_channels=n_channels,
+            time_to_frame=time_to_frame,
+            dtype=dtype,
+            **kwargs
+        )
+    
+    
 
     # ------------------ GETTERS -------------------
 
     @property
     def data(self):
         """Returns the Numpy data array of the sound."""
-        if not self.time_to_frame:
-            data = self._read_frames()
-            if self.n_channels > 1:
-                data = data.T
-            return data
+        if self.time_to_frame:
+            if self.n_frames is None:
+                _data = np.array(list(self._time_to_frame_generator()))
+                if self.n_channels > 1:
+                    _data = _data.T
+                return _data
+            else:
+                if self.n_channels == 1:
+                    shape = self.n_frames
+                else:
+                    shape = (self.n_frames, self.n_channels)
+                _data = np.empty(shape, dtype=self.dtype)
+                for i, frame_data in enumerate(self._time_to_frame_generator()):
+                    _data[i] = frame_data
+                if self.n_channels > 1:
+                    _data = _data.T
+                return _data
         else:
-            data = []
-            for i, t in enumerate(self.time_sequence):
-                try:
-                    data.append(self.time_to_frame(t))
-                except IndexError:
-                    self.n_frames = i  # assume end of sound
-                    break
-            return np.array(data).T
+            _data = self._read_frames()
+            if self.n_channels > 1:
+                _data = _data.T
+            return _data
     
     @property
     def dataframes(self):
@@ -286,94 +540,98 @@ class SoundIO:
         ``(n_frames, n_channels)`` if the sound is stereo, but if is mono returns a
         simple Numpy array with the values of the channel, one value for each frame.
         """
-        if not self.time_to_frame:
+        if self.time_to_frame:
+            if self.n_frames is None:
+                return np.array(list(self._time_to_frame_generator()))
+            else:
+                _data = np.empty(self.n_frames, dtype=self.dtype)
+                for i, frame_data in enumerate(self._time_to_frame_generator()):
+                    _data[i] = frame_data
+                return _data
+        else:
             return self._read_frames()
-        else:
-            data = []
-            for i, t in enumerate(self.time_sequence):
-                try:
-                    data.append(self.time_to_frame(t))
-                except IndexError:
-                    self.n_frames = i  # assume end of sound
-                    break
-            return np.array(data)
+            
     
-    
-    
-    ######################## DEPRECATED #############################
-    
-    
-
-    
-    
-    # ------------------ ITERATORS -------------------
-    
-    def iter_datatimes(self, duration, start=0):
-        for dataframe in self.iter_dataframes(duration * self.fps,
-                                              start=start * self.fps):
-            yield dataframe
-    
-    def iter_dataframes(self, n_frames, start=0):
-        numpy_datatype = getattr(np, f"int{self.n_bytes ** 4}")
-
-        if not self.time_to_frame:
-            if self.n_channels == 1:
-                for bytes in self.iter_byteframes(n_frames, start=start):
-                    yield np.frombuffer(bytes, numpy_datatype)
-            else:
-                for bytesframe in self.iter_byteframes(n_frames, start=start):
-                    yield np.frombuffer(b"".join(bytesframe[0]), numpy_datatype)
-        else:
-            for t in self.time_sequence[start: start + n_frames]:
+    def _time_to_frame_generator(self):
+        try:
+            for t in self.time_sequence:
                 yield self.time_to_frame(t)
+        except StopIteration:
+            self.n_frames = int(round(t * self.fps))  # assume end of sound
     
-    def iter_bytetimes(self, n_frames, start=0):
-        for dataframe in self.iter_byteframes(duration * self.fps,
-                                              start=start * self.fps):
-            yield dataframe
-    
-    def iter_byteframes(self, n_frames, start=0):
-        if not self.time_to_frame:
-            self._init_f()
-            
-            if start:
-                self.f.setpos(start)
-            
-            n_channels, n_bytes = (self.n_channels, self.n_bytes)
-            framesize = n_channels * n_bytes
-            buffersize = n_frames * framesize
-            
-            if n_channels == 1:
-                # fast iteration for mono files
-                while True:
-                    bytes = self.f._data_chunk.read(buffersize)
-                    if bytes == b"":
-                        break
-                    yield bytes
-            else:
-                # not so fast iteration for multiple channels
-                while True:
-                    bytes = self.f._data_chunk.read(buffersize)
-                    if bytes == b"":
-                        break
-                    bytesframes = []
-                    for fi in range(n_frames):
-                        bytesframe = []
-                        for chi in range(n_channels):
-                            start = fi * framesize + (chi * n_bytes)
-                            bytesframe.append(bytes[start: start + n_bytes])
-                        bytesframes.append(bytesframe)                    
-                    yield bytesframes
+    def iter_chunks(self, buffersize=0b10000000000):  # 1024 frames
+        """Generates each chunk of the sound data, been read at the moment
+        of yielding.
+        
+        Parameters
+        ----------
+        
+        buffersize : int, optional
+          Number of frames generated at each chunk.
+        """ 
+        n_frames, frames_read = (self.n_frames, 0b0)
+        
+        # this implementation is slightly faster than create a counter `i` and compute
+        # the frames read in the `RuntimeError` multipliying by `buffersize`
+        try:
+            while 1:
+                _buffersize = buffersize  
+                yield self.f.read_frames(_buffersize, dtype=self.dtype)
 
-            self.f.setpos(0)
+                # bitwise sum (buffersize += buffersize)
+                while _buffersize:
+                    carry = frames_read & _buffersize
+                    frames_read = frames_read ^ _buffersize
+                    _buffersize = carry << 1
+        except RuntimeError as err:
+            if str(err).startswith("Ask"):
+                self.f.seek(frames_read, mode="r")
+                yield self.f.read_frames(n_frames - frames_read, dtype=self.dtype)
+            else:
+                raise err
+
+    @property
+    def iter_dataframes(self):
+        """Generates each frame of the sound data.
+        
+        If the sound has beeen built using a generator function and its duration
+        hasn't been set, this will produce an infinite loop.
+        """
+        if self.time_to_frame:
+            for frame in self._time_to_frame_generator():
+                yield frame
         else:
-            raise IOError(
-                "The data of this sound is created on the fly using the function"
-                f" '{str(self.time_to_frame)}'. Please, call 'sound.iter_dataframes'"
-                " instead."
-            )
+            self._init_f()
+            for chunk in self.iter_chunks():
+                for frame in chunk:
+                    yield frame
+            self.f.seek(0, mode="r")
     
-    # ------------------ WRITE methods -------------------
+    @property
+    def iter_datatimes(self):
+        """Generates each frame of the sound data, yielding a tuple with the
+        time of the frame as first value and the data of the sound as second.
+        
+        If the sound has beeen built using a generator function and its duration
+        hasn't been set, this will produce an infinite loop.
+        """
+        if self.time_to_frame:
+            try:
+                for t in self.time_sequence:
+                    yield (t, self.time_to_frame(t))
+            except StopIteration:
+                self.n_frames = int(round(t * self.fps))  # assume end of sound
+        else:
+            self._init_f()
+            t, t_fps = (0, 1 / self.fps)
+            for chunk in self.iter_chunks():
+                for frame in chunk:
+                    yield (t, frame)
+                    t += t_fps
+            self.f.seek(0, mode="r")
+
+    
+    # ------------------ WRITERS -------------------
     
     def save(self, filename, buffsize=262144):
         """Saves an audio instance to a file.
@@ -399,111 +657,3 @@ class SoundIO:
                     'NONE',
                     'not compressed'
                 ))
-            
-    # ------------------ READ methods -------------------
-    
-    @classmethod
-    def from_byteframes(cls, frame_index_to_hexdata, n_frames, fps=44100, **kwargs):
-        """Build a sound object reading from frames bytes, one hex data chunk by frame
-        index.
-        
-        This method is slow and their recommended use is restricted to small portions
-        of audio in some contexts where could be useful.
-        
-        Parameters
-        ----------
-        
-        frame_index_to_hexdata : function
-          Function that takes an argument ``frame_index``, which refers to the index
-          of the frame starting at 0 and returns the bytes object for that frame.
-          The returned value must be a subscriptable object with the bytes for the
-          frame for each channel.
-        
-        n_frames : int
-          Total number of frames to build.
-        
-        fps : int, optional
-          Number of frames per second of the resulting sound.
-        
-        Examples
-        --------
-        
-        >>> # mono
-        >>>
-        >>> import wave, struct
-        >>> f = wave.open("mono.wav", "rb")
-        >>> hexdata = f.readframes(-1)
-        >>> channel_hexframes = []
-        >>> for bytes in struct.iter_unpack(f"{f.getsampwidth()}c", hexdata):
-        ...     channel_hexframes.append(b"".join(bytes))
-        >>>
-        >>> Sound.from_byteframes(lambda i: [channel_hexframes[i]],
-        ...                       f.getnframes(),
-        ...                       f.getframerate())
-        <waves.sound.mono.MonoSound object at ...>
-        >>> f.close()
-        
-        >>> # stereo
-        >>>
-        >>> import wave, struct
-        >>> f = wave.open("stereo.wav", "rb")
-        >>> hexdata = f.readframes(-1)
-        >>> n_channels = f.getnchannels()
-        >>> n_bytes = f.getsampwidth()
-        >>>
-        >>> channels_hexframes = []
-        >>> for bytes in struct.iter_unpack(f"{n_bytes * n_channels}c", hexdata):
-        ...     channels_hexframe = []
-        ...     for channel_index in range(n_channels):
-        ...         start = channel_index * n_bytes
-        ...         end = start + n_bytes
-        ...         channels_hexframe.append(b"".join(bytes[start: end]))
-        ...     channels_hexframes.append(channels_hexframe)
-        >>>
-        >>> Sound.from_byteframes(lambda i: channels_hexframes[i],
-        ...                       f.getnframes(),
-        ...                       f.getframerate())
-        <waves.sound.mono.StereoSound object at ...>
-        """
-        from waves.sound.mono import MonoSound
-    
-        # get first frame so we can retrieve number of bytes and channels
-        channels_hexdata = frame_index_to_hexdata(0)
-        if isinstance(channels_hexdata[0], bytes):
-            # mono
-            n_channels = len(channels_hexdata)
-            n_bytes = len(channels_hexdata[0])
-        else:
-            # stereo
-            n_channels = len(channels_hexdata[0])
-            n_bytes = len(channels_hexdata[0][0])
-
-        if n_channels == 1:
-            return MonoSound(
-                n_frames=n_frames,
-                fps=fps,
-                n_bytes=n_bytes,
-                time_to_frame=lambda t: int.from_bytes(
-                    frame_index_to_hexdata(int(t * fps))[0], "big"
-                ),
-                **kwargs
-            )
-        
-        from waves.sound.stereo import StereoSound
-        
-        def build_time_to_frame_function(i):
-            return lambda t: int.from_bytes(
-                frame_index_to_hexdata(int(t * fps))[i], "big"
-            )
-        
-        return StereoSound([
-            MonoSound(
-                n_bytes=n_bytes,
-                time_to_frame=build_time_to_frame_function(i)
-            ) for i in range(n_channels)
-        ])
-    
-    
-    
-    # TODO:
-    #   - open from hex at time, one hex data frame by frame time ``from_bytetimes``
