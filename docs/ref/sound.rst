@@ -42,8 +42,8 @@ Sound
 
    - If the sound is mono, the generator function must return one value at a
      time or frame.
-   - If the sound is stereo, the generator function must return one Numpy array
-     for each time or frame whose length will determine the number of channels.
+   - If the sound is stereo, the generator function must return one array for
+     each time or frame whose length will determine the number of channels.
 
    .. automethod:: Sound.from_datatimes
    .. automethod:: Sound.from_dataframes
@@ -97,3 +97,39 @@ Sound
    .. autoproperty:: Sound.iter_dataframes
    .. autoproperty:: Sound.iter_datatimes
    .. autoproperty:: Sound.iter_chunks
+
+   .. raw:: html
+
+      <hr/>
+      <h4 class="centered">WRITERS</h4>
+
+   .. automethod:: Sound.save
+
+   .. raw:: html
+
+      <hr/>
+      <h4 class="centered">INTERACTIVE</h4>
+
+   .. method:: play(wait=True, **kwargs)
+
+      Plays a sound using pygame.
+
+      wait : bool or Number, optional
+        Waits for the ending of the playing to return. Disable it if you want
+        an asynchronous playing. Pass a number if you want to wait an exact time
+        instead of the duration of the sound.
+
+   .. method:: plot(show=True, **kwargs)
+
+      Plots the figure that represents the sound using matplotlib.
+
+      show : bool, optional
+        Shows the figure using ``plt.show``.
+
+   .. method:: figure(title="Sound data")
+
+      Returns a basic matplotlib figure with the channels of the sound plotted.
+
+      title : str, optional
+        Figure title.
+

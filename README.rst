@@ -1,6 +1,16 @@
 waves
 =====
 
+.. image:: https://pypi.org/project/waves
+   :target: https://img.shields.io/pypi/v/mkdocs-include-markdown-plugin
+   :alt: Waves page on the Python Package Index
+.. image:: https://img.shields.io/github/workflow/status/mondeja/waves/CI?logo=github
+   :target: https://github.com/mondeja/waves/actions?query=workflow%3A%22CI%22
+   :alt: Build status on Github Actions
+.. image:: https://img.shields.io/coveralls/github/mondeja/waves/master?logo=coveralls
+   :target: https://coveralls.io/github/mondeja/waves?branch=master
+   :alt: Code coverage from coveralls.io
+
 Utility to work with WAV files in a simple way.
 
 It's built on top of pysndfile_ (a Cython wrapper for libsndfile_) and

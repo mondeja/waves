@@ -5,24 +5,22 @@ import time
 
 
 # hide pygame welcome message
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 
 
 def play_sound(data, frequency=44100, size=2, n_channels=2, wait=True, **kwargs):
     """Plays sound using Pygame.
-    
+
     Parameters
     ----------
-    
+
     data : np.ndarray
       Data array of the sound to play.
-    
+
     frequency : int
-      Number of frames per second. 
+      Number of frames per second.
     """
     from pygame import mixer
-    
-    print("play_sound() ->", size, n_channels)
 
     if mixer.get_busy():
         mixer.quit()
@@ -30,8 +28,8 @@ def play_sound(data, frequency=44100, size=2, n_channels=2, wait=True, **kwargs)
 
     pg_sound = mixer.Sound(array=data)
     pg_sound.play(**kwargs)
-    
-    print(wait)
 
     if wait:
         time.sleep(wait)
+
+    return pg_sound

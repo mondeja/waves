@@ -2,6 +2,7 @@
 
 from waves.sound.main import Sound
 
+
 __all__ = ("Sound",)
 
 __title__ = "waves"
