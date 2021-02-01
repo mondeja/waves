@@ -1,0 +1,669 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Quickstart" href="../quickstart.html" />
+
+    <meta name="generator" content="sphinx-3.4.3, furo 2020.12.30.beta24"/>
+        <title>Sound - waves 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script defer="defer" src="../_static/jquery.js"></script>
+    <script defer="defer" src="../_static/underscore.js"></script>
+    <script defer="defer" src="../_static/doctools.js"></script>
+    <script defer src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">waves 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">waves 0.0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Sound</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="sound">
+<h1>Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="waves.Sound">
+<em class="property">class </em><code class="sig-prename descclassname">waves.</code><code class="sig-name descname">Sound</code><a class="headerlink" href="#waves.Sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class for all sounds.</p>
+<p>Its import is very simple:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">waves</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">waves</span><span class="o">.</span><span class="n">Sound</span>
+<span class="go">&lt;class 'waves.sound.main.Sound'&gt;</span>
+</pre></div>
+</div>
+<p>The class <a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> is not intended to be built using their
+initialization method, instead must be used one of the opener or generators
+class methods.</p>
+<hr/>
+<h4 class="centered">OPENERS</h4><p>Openers class methods creates a <a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> instance from a file
+in the disk or a buffer in memory:</p>
+<dl class="py method">
+<dt id="waves.Sound.from_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a sound from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – File path in the disk to open.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – If the file does not exists in the provided path.</p></li>
+<li><p><strong>IsADirectoryError</strong> – If the provided path points to a directory.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">"tests/files/stereo.wav"</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">"tests/files/mono.wav"</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.from_sndbuffer">
+<em class="property">classmethod </em><code class="sig-name descname">from_sndbuffer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_sndbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a sound file from a <code class="xref py py-class docutils literal notranslate"><span class="pre">pysndfile.PySndfile</span></code> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pysndfile.PySndfile</span></code>) – Opened instance of wrapper reading and writing class of pysndfile.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pysndfile</span> <span class="k">as</span> <span class="nn">snd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_sndbuffer</span><span class="p">(</span><span class="n">snd</span><span class="o">.</span><span class="n">PySndfile</span><span class="p">(</span><span class="s2">"tests/files/stereo.wav"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">))</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_sndbuffer</span><span class="p">(</span><span class="n">snd</span><span class="o">.</span><span class="n">PySndfile</span><span class="p">(</span><span class="s2">"tests/files/mono.wav"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">))</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+<h4 class="centered" style="padding-top: 33px;">SOUND GENERATORS</h4><p>Generator class methods creates a <a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> instance using an
+interpolator function which build the array of values for the sound for each
+frame.</p>
+<p>By convenience, the next rule is follow:</p>
+<ul class="simple">
+<li><p>If the sound is mono, the generator function must return one value at a
+time or frame.</p></li>
+<li><p>If the sound is stereo, the generator function must return one array for
+each time or frame whose length will determine the number of channels.</p></li>
+</ul>
+<dl class="py method">
+<dt id="waves.Sound.from_datatimes">
+<em class="property">classmethod </em><code class="sig-name descname">from_datatimes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time_to_frame</span></em>, <em class="sig-param"><span class="n">fps</span><span class="o">=</span><span class="default_value">44100</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_datatimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a sound object reading from frames arrays data, one array data by
+frame given a time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_to_frame</strong> (<em>function</em>) – Function that takes an argument <code class="docutils literal notranslate"><span class="pre">t</span></code> which refers to the second of the
+frame and returns the numerical data for that frame. The returned value
+must be a subscriptable object with the data for the frame at given time
+for each channel.</p></li>
+<li><p><strong>fps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frames per second of the resulting sound.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># mono generating sine wave</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">duration</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">volume</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amplitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">*</span> <span class="n">volume</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">time_to_frame</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">amplitude</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">np</span><span class="o">.</span><span class="n">int16</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_datatimes</span><span class="p">(</span><span class="n">time_to_frame</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span><span class="o">.</span><span class="n">with_duration</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># stereo generating sine waves</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">duration</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">volume</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">440</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amplitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">*</span> <span class="n">volume</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">time_to_frame</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequencies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">amplitude</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">np</span><span class="o">.</span><span class="n">int16</span>
+<span class="gp">... </span>        <span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequencies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">amplitude</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">np</span><span class="o">.</span><span class="n">int16</span>
+<span class="gp">... </span>        <span class="p">),</span>
+<span class="gp">... </span>    <span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_datatimes</span><span class="p">(</span><span class="n">time_to_frame</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span><span class="o">.</span><span class="n">with_duration</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.from_dataframes">
+<em class="property">classmethod </em><code class="sig-name descname">from_dataframes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index_to_frame</span></em>, <em class="sig-param"><span class="n">fps</span><span class="o">=</span><span class="default_value">44100</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a sound object reading from frames arrays data, one array of data
+by frame index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_to_frame</strong> (<em>function</em>) – Function that takes an argument <code class="docutils literal notranslate"><span class="pre">i</span></code>, which refers to the index of the
+frame starting at 0 and returns the numerical data for that frame. The
+returned value must be a subscriptable object with the data for the frame
+for each channel.</p></li>
+<li><p><strong>fps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frames per second of the resulting sound.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># mono from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/mono.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">hexdata</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"int</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">index_to_frame</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span><span class="n">index_to_frame</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># mono from generated data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">duration</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">volume</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">duration</span> <span class="o">*</span> <span class="n">fps</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amplitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">*</span> <span class="n">volume</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequency</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># stereo from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/stereo.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">hexdata</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"int</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">getnchannels</span><span class="p">())</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">index_to_frame</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span><span class="n">index_to_frame</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># stereo from generated data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">duration</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">volume</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">440</span><span class="p">),</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">duration</span> <span class="o">*</span> <span class="n">fps</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amplitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">*</span> <span class="n">volume</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_left</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequencies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_right</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">frequencies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data_left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data_right</span><span class="p">[</span><span class="n">i</span><span class="p">]]),</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.from_bytetimes">
+<em class="property">classmethod </em><code class="sig-name descname">from_bytetimes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time_to_hexframe</span></em>, <em class="sig-param"><span class="n">fps</span><span class="o">=</span><span class="default_value">44100</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_bytetimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a sound object reading from frames bytes, one hex data chunk by frame
+at a time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_to_hexframe</strong> (<em>function</em>) – Function that takes an argument <code class="docutils literal notranslate"><span class="pre">t</span></code>, which refers to the second of the
+frame starting at 0 and returns the bytes object for that frame. The
+returned value must be a subscriptable object with the bytes for the frame
+for each channel.</p></li>
+<li><p><strong>fps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frames per second of the resulting sound.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># mono from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/mono.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexframes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bytes_frame</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">iter_unpack</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">()</span><span class="si">}</span><span class="s2">c"</span><span class="p">,</span> <span class="n">hexdata</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">hexframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bytes_frame</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_bytetimes</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">hexframes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">fps</span><span class="p">))],</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># stereo from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/stereo.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_channels</span><span class="p">,</span> <span class="n">n_bytes</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">getnchannels</span><span class="p">(),</span> <span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">())</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexframes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bytes_frame</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">iter_unpack</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">n_bytes</span> <span class="o">*</span> <span class="n">n_channels</span><span class="si">}</span><span class="s2">c"</span><span class="p">,</span> <span class="n">hexdata</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">hexframe</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">channel_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_channels</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">start</span> <span class="o">=</span> <span class="n">channel_index</span> <span class="o">*</span> <span class="n">n_bytes</span>
+<span class="gp">... </span>        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">n_bytes</span>
+<span class="gp">... </span>        <span class="n">hexframe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bytes_frame</span><span class="p">[</span><span class="n">start</span><span class="p">:</span> <span class="n">end</span><span class="p">]))</span>
+<span class="gp">... </span>    <span class="n">hexframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hexframe</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_bytetimes</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">hexframes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">fps</span><span class="p">))],</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.from_byteframes">
+<em class="property">classmethod </em><code class="sig-name descname">from_byteframes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index_to_hexframe</span></em>, <em class="sig-param"><span class="n">fps</span><span class="o">=</span><span class="default_value">44100</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_byteframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a sound object reading from frames bytes, one hex data chunk by frame
+index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_to_hexframe</strong> (<em>function</em>) – Function that takes an argument <code class="docutils literal notranslate"><span class="pre">i</span></code>, which refers to the index of the
+frame starting at 0 and returns the bytes object for that frame. The
+returned value must be a subscriptable object with the bytes for the frame
+for each channel.</p></li>
+<li><p><strong>fps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frames per second of the resulting sound.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># mono from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/mono.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexframes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bytes_frame</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">iter_unpack</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">()</span><span class="si">}</span><span class="s2">c"</span><span class="p">,</span> <span class="n">hexdata</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">hexframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bytes_frame</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">index_to_hexframe</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">hexframes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_byteframes</span><span class="p">(</span><span class="n">index_to_hexframe</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># stereo from file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wave</span><span class="o">,</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"tests/files/stereo.wav"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_channels</span><span class="p">,</span> <span class="n">n_bytes</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">getnchannels</span><span class="p">(),</span> <span class="n">f</span><span class="o">.</span><span class="n">getsampwidth</span><span class="p">())</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hexframes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bytes_frame</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">iter_unpack</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">n_bytes</span> <span class="o">*</span> <span class="n">n_channels</span><span class="si">}</span><span class="s2">c"</span><span class="p">,</span> <span class="n">hexdata</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">hexframe</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">channel_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_channels</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">start</span> <span class="o">=</span> <span class="n">channel_index</span> <span class="o">*</span> <span class="n">n_bytes</span>
+<span class="gp">... </span>        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">n_bytes</span>
+<span class="gp">... </span>        <span class="n">hexframe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bytes_frame</span><span class="p">[</span><span class="n">start</span><span class="p">:</span> <span class="n">end</span><span class="p">]))</span>
+<span class="gp">... </span>    <span class="n">hexframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hexframe</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">index_to_hexframe</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">hexframes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Sound</span><span class="o">.</span><span class="n">from_byteframes</span><span class="p">(</span><span class="n">index_to_hexframe</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">getframerate</span><span class="p">())</span>
+<span class="go">&lt;waves.sound.main.Sound object at ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+<hr/>
+<h4 class="centered">GETTERS</h4><dl class="py attribute">
+<dt id="waves.Sound.n_frames">
+<code class="sig-name descname">n_frames</code><em class="property"> int</em><a class="headerlink" href="#waves.Sound.n_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frames of the audio data.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.n_bytes">
+<code class="sig-name descname">n_bytes</code><em class="property"> int</em><a class="headerlink" href="#waves.Sound.n_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample width of the sound.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.n_channels">
+<code class="sig-name descname">n_channels</code><em class="property"> int</em><a class="headerlink" href="#waves.Sound.n_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of channels of the sound.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.fps">
+<code class="sig-name descname">fps</code><em class="property"> int</em><a class="headerlink" href="#waves.Sound.fps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of frames per second, also known as <em>framerate</em> or <em>sampling rate</em>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.dtype">
+<code class="sig-name descname">dtype</code><em class="property"> type</em><a class="headerlink" href="#waves.Sound.dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of the data used to decode the sound as a Numpy array.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.filename">
+<code class="sig-name descname">filename</code><em class="property"> str</em><a class="headerlink" href="#waves.Sound.filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the file located in disk which stores the raw sound data.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.time_to_frame">
+<code class="sig-name descname">time_to_frame</code><em class="property"> function</em><a class="headerlink" href="#waves.Sound.time_to_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function which takes a time <code class="docutils literal notranslate"><span class="pre">t</span></code> for each frame of the sound and renders the
+Numpy array data of the sound for each frame. Only defined if the sound has
+been created an interpolator function.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.metadata">
+<code class="sig-name descname">metadata</code><em class="property"> dict</em><a class="headerlink" href="#waves.Sound.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary with metadata about the sound.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.data">
+<code class="sig-name descname">data</code><em class="property">: np.ndarray</em><a class="headerlink" href="#waves.Sound.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numpy data array of the sound. If the sound is stereo, returns one Numpy
+array per channel, but if the sound is mono returns one Numpy array with
+the values of the sound for the channel.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="waves.Sound.dataframes">
+<code class="sig-name descname">dataframes</code><em class="property">: np.ndarray</em><a class="headerlink" href="#waves.Sound.dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numpy data array of the sound for each frame. If the sound is stereo,
+returns one Numpy array per frame, but if the sound is mono returns one
+Numpy array with the values of the sound for the channel, one array for
+each frame.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.iter_dataframes">
+<em class="property">property </em><code class="sig-name descname">iter_dataframes</code><a class="headerlink" href="#waves.Sound.iter_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates each frame of the sound data.</p>
+<p>If the sound has beeen built using a generator function and its duration
+hasn’t been set, this will produce an infinite loop.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.iter_datatimes">
+<em class="property">property </em><code class="sig-name descname">iter_datatimes</code><a class="headerlink" href="#waves.Sound.iter_datatimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates each frame of the sound data, yielding a tuple with the
+time of the frame as first value and the data of the sound as second.</p>
+<p>If the sound has beeen built using a generator function and its duration
+hasn’t been set, this will produce an infinite loop.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.iter_chunks">
+<em class="property">property </em><code class="sig-name descname">iter_chunks</code><a class="headerlink" href="#waves.Sound.iter_chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates each chunk of the sound data, being read at the moment
+of yielding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffersize</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frames generated at each chunk.</p>
+</dd>
+</dl>
+</dd></dl>
+<hr/>
+<h4 class="centered">WRITERS</h4><dl class="py method">
+<dt id="waves.Sound.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">buffersize</span><span class="o">=</span><span class="default_value">1024</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves an audio instance to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – System disk path in which the file will be saved.</p></li>
+<li><p><strong>buffsize</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes stored in memory buffer while reading and writing.
+Only used if the filename to write has been created opening from a
+file in disk.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<hr/>
+<h4 class="centered">INTERACTIVE</h4><dl class="py method">
+<dt id="waves.Sound.play">
+<code class="sig-name descname">play</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays a sound using pygame.</p>
+<dl class="simple">
+<dt>wait<span class="classifier">bool or Number, optional</span></dt><dd><p>Waits for the ending of the playing to return. Disable it if you want
+an asynchronous playing. Pass a number if you want to wait an exact time
+instead of the duration of the sound.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the figure that represents the sound using matplotlib.</p>
+<dl class="simple">
+<dt>show<span class="classifier">bool, optional</span></dt><dd><p>Shows the figure using <code class="docutils literal notranslate"><span class="pre">plt.show</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="waves.Sound.figure">
+<code class="sig-name descname">figure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'Sound data'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a basic matplotlib figure with the channels of the sound plotted.</p>
+<dl class="simple">
+<dt>title<span class="classifier">str, optional</span></dt><dd><p>Figure title.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="../quickstart.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Quickstart</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Álvaro Mondéjar Rubio
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/ref/sound.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </main>
+</div>
+  </body>
+</html>
