@@ -39,7 +39,7 @@ DOC_EXTRAS = [
 DEV_EXTRAS = (
     [
         "bump2version==1.0.1",
-        "pre-commit==2.9.3",
+        "pre-commit==2.10.0",
     ]
     + DOC_EXTRAS
     + TEST_EXTRAS
