@@ -2,7 +2,7 @@ waves
 =====
 
 .. image:: https://pypi.org/project/waves
-   :target: https://img.shields.io/pypi/v/mkdocs-include-markdown-plugin
+   :target: https://img.shields.io/pypi/v/waves
    :alt: Waves page on the Python Package Index
 .. image:: https://img.shields.io/github/workflow/status/mondeja/waves/CI?logo=github
    :target: https://github.com/mondeja/waves/actions?query=workflow%3A%22CI%22

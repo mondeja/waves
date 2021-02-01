@@ -19,7 +19,9 @@ jobs:
           python-version: 3.8
 
       - name: Install dependencies
-        run: python3 -m pip install .[doc]
+        run: |
+          sudo apt-get install libsndfile1-dev
+          python3 -m pip install .[doc]
 
       - name: Build documentation
         run: |
