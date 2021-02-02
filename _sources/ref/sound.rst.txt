@@ -132,4 +132,3 @@ Sound
 
       title : str, optional
         Figure title.
-
