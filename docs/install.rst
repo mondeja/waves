@@ -14,7 +14,7 @@ After that, you only need to install using PIP as usually:
 
 .. code-block:: bash
 
-   pip install https://github.com/mondeja/waves/releases/download/v0.0.1/waves-0.0.1-py3-none-any.whl
+   pip install https://github.com/mondeja/waves/releases/download/v0.0.2/waves-0.0.2-py3-none-any.whl
 
 .. note::
 
