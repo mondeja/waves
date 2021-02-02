@@ -1,4 +1,19 @@
 repos:
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.9.0
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py36-plus
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: end-of-file-fixer
+        name: end-of-file-fixer
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.16.0
+    hooks:
+      - id: setup-cfg-fmt
   - repo: https://gitlab.com/pycqa/flake8
     rev: master
     hooks:
@@ -6,7 +21,6 @@ repos:
         additional_dependencies:
           - flake8-implicit-str-concat
           - flake8-absolute-import
-        name: flake8-test
         files: \.py$
   - repo: https://github.com/PyCQA/isort
     rev: master

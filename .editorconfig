@@ -7,11 +7,8 @@ indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true
 
-[*.{py,cfg,ini}]
+[*.{py,cfg}]
 indent_size = 4
 
 [*.rst]
 indent_size = 3
-
-[*.{py,md}]
-trim_trailing_whitespace = false

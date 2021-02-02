@@ -604,13 +604,11 @@ class SoundIO:
         hasn't been set, this will produce an infinite loop.
         """
         if self.time_to_frame:
-            for frame in self._time_to_frame_generator():
-                yield frame
+            yield from self._time_to_frame_generator()
         else:
             self._init_f()
             for chunk in self.iter_chunks():
-                for frame in chunk:
-                    yield frame
+                yield from chunk
             self.f.seek(0, mode="r")
 
     @property
