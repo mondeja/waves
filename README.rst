@@ -4,7 +4,7 @@ waves
 .. image:: https://img.shields.io/pypi/v/waves?logo=pypi&logoColor=white
    :target: https://pypi.org/project/waves/
    :alt: PyPI
-.. image:: https://img.shields.io/pypi/pyversions/waves?logo=python&colorColor=white
+.. image:: https://img.shields.io/pypi/pyversions/waves?logo=python&logoColor=white
    :target: https://pypi.org/project/waves/
    :alt: Python versions
 .. image:: https://img.shields.io/github/workflow/status/mondeja/waves/CI?logo=github
