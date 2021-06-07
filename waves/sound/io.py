@@ -553,7 +553,10 @@ class SoundIO:
                     shape = (self.n_frames, self.n_channels)
                 _data = np.empty(shape, dtype=self.dtype)
                 for i, frame_data in enumerate(self._time_to_frame_generator()):
-                    _data[i] = frame_data
+                    try:
+                        _data[i] = frame_data
+                    except IndexError:
+                        break
                 return _data
         else:
             return self._read_frames()
