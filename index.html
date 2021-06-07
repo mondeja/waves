@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="install.html" />
 
     <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
-        <title>Home - waves 0.2.0 documentation</title>
+        <title>Home - waves 0.2.1 documentation</title>
       <link rel="stylesheet" href="_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
     <link rel="stylesheet" href="_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css">
@@ -87,7 +87,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">waves 0.2.0 documentation</div></a>
+      <a href="#"><div class="brand">waves 0.2.1 documentation</div></a>
     </div>
     <div class="header-right">
       <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
@@ -101,7 +101,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
   
-  <span class="sidebar-brand-text">waves 0.2.0 documentation</span>
+  <span class="sidebar-brand-text">waves 0.2.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html">
   <input class="sidebar-search" placeholder=Search name="q">
@@ -134,12 +134,28 @@
 <h1>waves<a class="headerlink" href="#waves" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="https://pypi.org/project/waves/"><img alt="PyPI" src="https://img.shields.io/pypi/v/waves?logo=pypi&amp;logoColor=white"/></a>
 <a class="reference external image-reference" href="https://pypi.org/project/waves/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/waves?logo=python&amp;logoColor=white"/></a>
+<a class="reference external image-reference" href="https://mondeja.github.io/waves/"><img alt="Github Pages" src="https://img.shields.io/github/workflow/status/mondeja/waves/Github%20Pages?label=docs&amp;logo=github"/></a>
 <a class="reference external image-reference" href="https://github.com/mondeja/waves/actions?query=workflow%3A%22CI%22"><img alt="Build status on Github Actions" src="https://img.shields.io/github/workflow/status/mondeja/waves/CI?logo=github"/></a>
 <a class="reference external image-reference" href="https://coveralls.io/github/mondeja/waves?branch=master"><img alt="Code coverage from coveralls.io" src="https://img.shields.io/coveralls/github/mondeja/waves/master?logo=coveralls"/></a>
-<a class="reference external image-reference" href="https://mondeja.github.io/waves/"><img alt="Github Pages" src="https://img.shields.io/github/workflow/status/mondeja/waves/Github%20Pages?label=docs&amp;logo=github"/></a>
 <p>Utility to work with WAV files in a simple way.</p>
 <p>It’s built on top of <a class="reference external" href="https://pysndfile.readthedocs.io/en/latest/LONG_DESCR.html">pysndfile</a> (a Cython wrapper for <a class="reference external" href="http://www.mega-nerd.com/libsndfile/">libsndfile</a>) and
 shouldn’t be confused with the builtin library <a class="reference external" href="https://docs.python.org/3/library/wave.html">wave</a>.</p>
+<p>### Installation</p>
+<blockquote>
+<div><p>pip install waves</p>
+</div></blockquote>
+<p>You can pass the following extras to the installation:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">play</span></code>: you will can listen the sound using <code class="docutils literal notranslate"><span class="pre">sound.play</span></code> using pygame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot</span></code>: you will can paint the spectrum of sounds as figures in a matplotlib</p></li>
+</ul>
+<blockquote>
+<div><p>canvas to observe them.</p>
+<blockquote>
+<div><p>pip install waves[play,plot]</p>
+</div></blockquote>
+</div></blockquote>
+<p>### <a class="reference external" href="https://mondeja.github.io/waves">Documentation</a></p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
