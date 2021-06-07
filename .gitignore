@@ -2,3 +2,4 @@
 !/tests/files/*.wav
 /__main__.py
 /dist/
+/build/

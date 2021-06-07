@@ -14,13 +14,7 @@ After that, you only need to install using PIP as usually:
 
 .. code-block:: bash
 
-   pip install https://github.com/mondeja/waves/releases/download/v0.0.2/waves-0.0.2-py3-none-any.whl
-
-.. note::
-
-   For now, it's only possible to install it using the direct release link.
-   The name of the project has been squatted in PyPI and I'm `waiting for their
-   liberation <https://github.com/pypa/pypi-support/issues/873>`_.
+   pip install waves
 
 .. _libsndfile: http://www.mega-nerd.com/libsndfile/
 .. _official precompiled binary: http://www.mega-nerd.com/libsndfile/#Download

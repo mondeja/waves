@@ -7,6 +7,9 @@ waves
 .. image:: https://img.shields.io/coveralls/github/mondeja/waves/master?logo=coveralls
    :target: https://coveralls.io/github/mondeja/waves?branch=master
    :alt: Code coverage from coveralls.io
+.. image:: https://img.shields.io/github/workflow/status/mondeja/waves/Github%20Pages?label=docs&logo=github
+   :target: https://mondeja.github.io/waves/
+   :alt: Github Pages
 
 Utility to work with WAV files in a simple way.
 
