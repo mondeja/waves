@@ -90,7 +90,7 @@
       <a href="#"><div class="brand">waves 0.2.1 documentation</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -127,7 +127,7 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="waves">
@@ -140,10 +140,11 @@
 <p>Utility to work with WAV files in a simple way.</p>
 <p>It’s built on top of <a class="reference external" href="https://pysndfile.readthedocs.io/en/latest/LONG_DESCR.html">pysndfile</a> (a Cython wrapper for <a class="reference external" href="http://www.mega-nerd.com/libsndfile/">libsndfile</a>) and
 shouldn’t be confused with the builtin library <a class="reference external" href="https://docs.python.org/3/library/wave.html">wave</a>.</p>
-<p>### Installation</p>
-<blockquote>
-<div><p>pip install waves</p>
-</div></blockquote>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">waves</span>
+</pre></div>
+</div>
 <p>You can pass the following extras to the installation:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">play</span></code>: you will can listen the sound using <code class="docutils literal notranslate"><span class="pre">sound.play</span></code> using pygame.</p></li>
@@ -151,11 +152,13 @@ shouldn’t be confused with the builtin library <a class="reference external" h
 </ul>
 <blockquote>
 <div><p>canvas to observe them.</p>
-<blockquote>
-<div><p>pip install waves[play,plot]</p>
 </div></blockquote>
-</div></blockquote>
-<p>### <a class="reference external" href="https://mondeja.github.io/waves">Documentation</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">waves</span><span class="p">[</span><span class="n">play</span><span class="p">,</span><span class="n">plot</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2><a class="reference external" href="https://mondeja.github.io/waves">Documentation</a><a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
@@ -175,6 +178,7 @@ shouldn’t be confused with the builtin library <a class="reference external" h
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ref/sound.html">Sound</a></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -210,8 +214,30 @@ shouldn’t be confused with the builtin library <a class="reference external" h
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">waves</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
