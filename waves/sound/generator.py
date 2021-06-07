@@ -4,7 +4,7 @@ import numpy as np
 
 
 @functools.lru_cache(maxsize=None)
-def mono_ttf_gen(fps=44100, frequency=110, volume=0.5):
+def mono_ttf_gen(fps=44100, frequency=110, volume=0.5, sample_width=2):
     """Generates a ``time_to_frame`` function for a mono sine wave which can be
     passed to ``Sound.from_datatimes``.
 
@@ -21,6 +21,9 @@ def mono_ttf_gen(fps=44100, frequency=110, volume=0.5):
     volume : float, optional
       Value between 0 and 1 that will define the volume of the wave.
 
+    sample_width : int, optional
+      Number of bytes used in wave data values.
+
 
     Returns
     -------
@@ -36,16 +39,17 @@ def mono_ttf_gen(fps=44100, frequency=110, volume=0.5):
     >>> time_to_frame = mono_ttf_gen(frequency=660, volume=0.2)
     >>> sound = Sound.from_datatimes(time_to_frame).with_duration(2)
     """
-    amplitude = np.iinfo(np.int16).max * volume
+    dtype = getattr(np, f"int{sample_width << 3}")
+    amplitude = np.iinfo(dtype).max * volume
 
     def time_to_frame(t):
-        return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(np.int16)
+        return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(dtype)
 
     return time_to_frame
 
 
 @functools.lru_cache(maxsize=None)
-def stereo_ttf_gen(fps=44100, frequencies=(440, 110), volume=0.5):
+def stereo_ttf_gen(fps=44100, frequencies=(440, 110), volume=0.5, sample_width=2):
     """Generates a ``time_to_frame`` function for a stereo sine wave which can be
     passed to ``Sound.from_datatimes``.
 
@@ -63,6 +67,9 @@ def stereo_ttf_gen(fps=44100, frequencies=(440, 110), volume=0.5):
     volume : float, optional
       Value between 0 and 1 that will define the volume of the wave.
 
+    sample_width : int, optional
+      Number of bytes used in wave data values.
+
 
     Returns
     -------
@@ -78,9 +85,12 @@ def stereo_ttf_gen(fps=44100, frequencies=(440, 110), volume=0.5):
     >>> time_to_frame = stereo_ttf_gen(frequencies=(660, 290), volume=0.2)
     >>> sound = Sound.from_datatimes(time_to_frame).with_duration(2)
     """
-    amplitude = np.iinfo(np.int16).max * volume
+    dtype = getattr(np, f"int{sample_width << 3}")
+    amplitude = np.iinfo(dtype).max * volume
 
     def time_to_frame(t):
-        return [np.sin(freq * 2 * np.pi * t) * amplitude for freq in frequencies]
+        return np.array(
+            [np.sin(freq * 2 * np.pi * t) * amplitude for freq in frequencies]
+        ).astype(dtype)
 
     return time_to_frame
