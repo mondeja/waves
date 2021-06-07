@@ -6,4 +6,4 @@ from waves.sound.main import Sound
 __all__ = ("Sound",)
 
 __title__ = "waves"
-__version__ = "0.0.2"
+__version__ = "0.2.0"

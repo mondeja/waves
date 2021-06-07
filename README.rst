@@ -1,6 +1,12 @@
 waves
 =====
 
+.. image:: https://img.shields.io/pypi/v/waves?logo=pypi&logoColor=white
+   :target: https://pypi.org/project/waves/
+   :alt: PyPI
+.. image:: https://img.shields.io/pypi/pyversions/waves?logo=python&colorColor=white
+   :target: https://pypi.org/project/waves/
+   :alt: Python versions
 .. image:: https://img.shields.io/github/workflow/status/mondeja/waves/CI?logo=github
    :target: https://github.com/mondeja/waves/actions?query=workflow%3A%22CI%22
    :alt: Build status on Github Actions
