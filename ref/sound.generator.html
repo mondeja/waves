@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Sound" href="sound.html" />
 
     <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
-        <title>sound.generator - waves 0.2.3 documentation</title>
+        <title>sound.generator - waves 0.2.4 documentation</title>
       <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
@@ -87,7 +87,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">waves 0.2.3 documentation</div></a>
+      <a href="../index.html"><div class="brand">waves 0.2.4 documentation</div></a>
     </div>
     <div class="header-right">
       <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
@@ -101,7 +101,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">waves 0.2.3 documentation</span>
+  <span class="sidebar-brand-text">waves 0.2.4 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html">
   <input class="sidebar-search" placeholder=Search name="q">
@@ -135,7 +135,7 @@
 <h1>sound.generator<a class="headerlink" href="#sound-generator" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="waves.sound.generator.mono_ttf_gen">
-<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">mono_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">110</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.mono_ttf_gen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">mono_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">110</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.mono_ttf_gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a <code class="docutils literal notranslate"><span class="pre">time_to_frame</span></code> function for a mono sine wave which can be
 passed to <code class="docutils literal notranslate"><span class="pre">Sound.from_datatimes</span></code>.</p>
 <dl class="field-list simple">
@@ -144,6 +144,7 @@ passed to <code class="docutils literal notranslate"><span class="pre">Sound.fro
 <li><p><strong>fps</strong> (<em>int</em><em>, </em><em>optional</em>) – Frames per second of the sound to generate.</p></li>
 <li><p><strong>frequency</strong> (<em>int</em><em>, </em><em>optional</em>) – Frequency of the sine wave.</p></li>
 <li><p><strong>volume</strong> (<em>float</em><em>, </em><em>optional</em>) – Value between 0 and 1 that will define the volume of the wave.</p></li>
+<li><p><strong>sample_width</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes used in wave data values.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -163,7 +164,7 @@ passed to <code class="docutils literal notranslate"><span class="pre">Sound.fro
 </dd></dl>
 <dl class="py function">
 <dt id="waves.sound.generator.stereo_ttf_gen">
-<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">stereo_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(440,</span> <span class="pre">110)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.stereo_ttf_gen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">stereo_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(440,</span> <span class="pre">110)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.stereo_ttf_gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a <code class="docutils literal notranslate"><span class="pre">time_to_frame</span></code> function for a stereo sine wave which can be
 passed to <code class="docutils literal notranslate"><span class="pre">Sound.from_datatimes</span></code>.</p>
 <dl class="field-list simple">
@@ -173,6 +174,7 @@ passed to <code class="docutils literal notranslate"><span class="pre">Sound.fro
 <li><p><strong>frequencies</strong> (<em>tuple</em><em> or </em><em>list</em><em>, </em><em>optional</em>) – Frequencies of each channel for the sine wave. The number of channels
 will be determined by the number of values introduced in this parameter.</p></li>
 <li><p><strong>volume</strong> (<em>float</em><em>, </em><em>optional</em>) – Value between 0 and 1 that will define the volume of the wave.</p></li>
+<li><p><strong>sample_width</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes used in wave data values.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
