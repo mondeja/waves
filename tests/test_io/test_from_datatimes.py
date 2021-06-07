@@ -8,13 +8,10 @@ import numpy as np
 from waves import Sound
 
 
-def test_from_datatimes_mono():
+def test_from_datatimes_mono(mono_ttf_gen):
     fps, frequency, volume = (44100, 110, 0.5)
-    amplitude = np.iinfo(np.int16).max * volume
 
-    def time_to_frame(t):
-        return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(np.int16)
-
+    time_to_frame = mono_ttf_gen(fps=fps, frequency=frequency, volume=volume)
     sound = Sound.from_datatimes(time_to_frame, fps=fps)
 
     assert sound.n_bytes == 2

@@ -12,3 +12,4 @@
    :caption: Reference
 
    ref/sound
+   ref/sound.generator

@@ -20,12 +20,11 @@ def test_iter_dataframes_stereo_from_file(stereo_sound):
         assert frame[1] == data[i][1]
 
 
-def test_iter_dataframes_mono_from_function():
+def test_iter_dataframes_mono_from_function(mono_ttf_gen):
     fps, frequency, volume = (44100, 110, 0.5)
-    amplitude, t_fps = (np.iinfo(np.int16).max * volume, 1 / fps)
 
-    def time_to_frame(t):
-        return (np.sin(frequency * 2 * np.pi * t) * amplitude).astype(np.int16)
+    time_to_frame = mono_ttf_gen(fps=fps, frequency=frequency, volume=volume)
+    t_fps = 1 / fps
 
     sound = Sound.from_datatimes(time_to_frame, fps=fps).with_duration(0.5)
     for i, frame in enumerate(sound.iter_dataframes):
