@@ -2,13 +2,15 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Sound" href="sound.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Sound" href="sound.html" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+    <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
         <title>sound.generator - waves 0.2.5 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
-    <link rel="stylesheet" href="../_static/pygments.css">
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
 
 
@@ -37,8 +39,7 @@
   --color-code-foreground: #d0d0d0;
   
   }
-</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+</style><link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css"></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -131,11 +132,11 @@
         <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="sound-generator">
+        <section id="sound-generator">
 <h1>sound.generator<a class="headerlink" href="#sound-generator" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="waves.sound.generator.mono_ttf_gen">
-<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">mono_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">110</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.mono_ttf_gen" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.sound.generator.mono_ttf_gen">
+<span class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></span><span class="sig-name descname"><span class="pre">mono_ttf_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">110</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.mono_ttf_gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a <code class="docutils literal notranslate"><span class="pre">time_to_frame</span></code> function for a mono sine wave which can be
 passed to <code class="docutils literal notranslate"><span class="pre">Sound.from_datatimes</span></code>.</p>
 <dl class="field-list simple">
@@ -163,8 +164,8 @@ passed to <code class="docutils literal notranslate"><span class="pre">Sound.fro
 </div>
 </dd></dl>
 <dl class="py function">
-<dt id="waves.sound.generator.stereo_ttf_gen">
-<code class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></code><code class="sig-name descname"><span class="pre">stereo_ttf_gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(440,</span> <span class="pre">110)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.stereo_ttf_gen" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.sound.generator.stereo_ttf_gen">
+<span class="sig-prename descclassname"><span class="pre">waves.sound.generator.</span></span><span class="sig-name descname"><span class="pre">stereo_ttf_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(440,</span> <span class="pre">110)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.sound.generator.stereo_ttf_gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a <code class="docutils literal notranslate"><span class="pre">time_to_frame</span></code> function for a stereo sine wave which can be
 passed to <code class="docutils literal notranslate"><span class="pre">Sound.from_datatimes</span></code>.</p>
 <dl class="field-list simple">
@@ -192,7 +193,7 @@ will be determined by the number of values introduced in this parameter.</p></li
 </pre></div>
 </div>
 </dd></dl>
-</div>
+</section>
 
       </article>
       <footer>
@@ -234,10 +235,10 @@ will be determined by the number of values introduced in this parameter.</p></li
       
     </aside>
   </main>
-</div>
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+    <script src="../_static/scripts/main.js"></script>
+    </body>
 </html>

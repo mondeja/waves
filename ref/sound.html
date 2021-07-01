@@ -2,13 +2,15 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="sound.generator" href="sound.generator.html" /><link rel="prev" title="Quickstart" href="../quickstart.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="sound.generator" href="sound.generator.html" /><link rel="prev" title="Quickstart" href="../quickstart.html" />
 
-    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+    <meta name="generator" content="sphinx-4.0.2, furo 2021.06.24.beta37"/>
         <title>Sound - waves 0.2.5 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
-    <link rel="stylesheet" href="../_static/pygments.css">
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
 
 
@@ -37,8 +39,7 @@
   --color-code-foreground: #d0d0d0;
   
   }
-</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+</style><link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css"></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -131,11 +132,11 @@
         <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="sound">
+        <section id="sound">
 <h1>Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="waves.Sound">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">waves.</span></code><code class="sig-name descname"><span class="pre">Sound</span></code><a class="headerlink" href="#waves.Sound" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">waves.</span></span><span class="sig-name descname"><span class="pre">Sound</span></span><a class="headerlink" href="#waves.Sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main class for all sounds.</p>
 <p>Its import is very simple:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">waves</span> <span class="kn">import</span> <span class="n">Sound</span>
@@ -153,8 +154,8 @@ class methods.</p>
 <h4 class="centered">OPENERS</h4><p>Openers class methods creates a <a class="reference internal" href="#waves.Sound" title="waves.Sound"><code class="xref py py-class docutils literal notranslate"><span class="pre">waves.Sound</span></code></a> instance from a file
 in the disk or a buffer in memory:</p>
 <dl class="py method">
-<dt id="waves.Sound.from_file">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_file">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a sound from a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -185,8 +186,8 @@ in the disk or a buffer in memory:</p>
 </div>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.from_sndbuffer">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_sndbuffer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_sndbuffer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_sndbuffer">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_sndbuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_sndbuffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a sound file from a <code class="xref py py-class docutils literal notranslate"><span class="pre">pysndfile.PySndfile</span></code> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -222,8 +223,8 @@ time or frame.</p></li>
 each time or frame whose length will determine the number of channels.</p></li>
 </ul>
 <dl class="py method">
-<dt id="waves.Sound.from_datatimes">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_datatimes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_to_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_datatimes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_datatimes">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_datatimes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_to_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_datatimes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a sound object reading from frames arrays data, one array data by
 frame given a time.</p>
 <dl class="field-list simple">
@@ -277,8 +278,8 @@ for each channel.</p></li>
 </div>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.from_dataframes">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_dataframes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_to_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_dataframes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_dataframes">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_dataframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_to_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_dataframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a sound object reading from frames arrays data, one array of data
 by frame index.</p>
 <dl class="field-list simple">
@@ -367,8 +368,8 @@ for each channel.</p></li>
 </div>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.from_bytetimes">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_bytetimes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_to_hexframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_bytetimes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_bytetimes">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_bytetimes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_to_hexframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_bytetimes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a sound object reading from frames bytes, one hex data chunk by frame
 at a time.</p>
 <dl class="field-list simple">
@@ -422,8 +423,8 @@ for each channel.</p></li>
 </div>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.from_byteframes">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_byteframes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_to_hexframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_byteframes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.from_byteframes">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_byteframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_to_hexframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.from_byteframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build a sound object reading from frames bytes, one hex data chunk by frame
 index.</p>
 <dl class="field-list simple">
@@ -490,80 +491,80 @@ for each channel.</p></li>
 </dd></dl>
 <hr/>
 <h4 class="centered">GETTERS</h4><dl class="py attribute">
-<dt id="waves.Sound.n_frames">
-<code class="sig-name descname"><span class="pre">n_frames</span></code><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_frames" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.n_frames">
+<span class="sig-name descname"><span class="pre">n_frames</span></span><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_frames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of frames of the audio data.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.n_bytes">
-<code class="sig-name descname"><span class="pre">n_bytes</span></code><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_bytes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.n_bytes">
+<span class="sig-name descname"><span class="pre">n_bytes</span></span><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sample width of the sound.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.n_channels">
-<code class="sig-name descname"><span class="pre">n_channels</span></code><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_channels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.n_channels">
+<span class="sig-name descname"><span class="pre">n_channels</span></span><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.n_channels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of channels of the sound.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.fps">
-<code class="sig-name descname"><span class="pre">fps</span></code><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.fps" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.fps">
+<span class="sig-name descname"><span class="pre">fps</span></span><em class="property"> <span class="pre">int</span></em><a class="headerlink" href="#waves.Sound.fps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of frames per second, also known as <em>framerate</em> or <em>sampling rate</em>.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.dtype">
-<code class="sig-name descname"><span class="pre">dtype</span></code><em class="property"> <span class="pre">type</span></em><a class="headerlink" href="#waves.Sound.dtype" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.dtype">
+<span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"> <span class="pre">type</span></em><a class="headerlink" href="#waves.Sound.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type of the data used to decode the sound as a Numpy array.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.filename">
-<code class="sig-name descname"><span class="pre">filename</span></code><em class="property"> <span class="pre">str</span></em><a class="headerlink" href="#waves.Sound.filename" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><em class="property"> <span class="pre">str</span></em><a class="headerlink" href="#waves.Sound.filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path to the file located in disk which stores the raw sound data.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.time_to_frame">
-<code class="sig-name descname"><span class="pre">time_to_frame</span></code><em class="property"> <span class="pre">function</span></em><a class="headerlink" href="#waves.Sound.time_to_frame" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.time_to_frame">
+<span class="sig-name descname"><span class="pre">time_to_frame</span></span><em class="property"> <span class="pre">function</span></em><a class="headerlink" href="#waves.Sound.time_to_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function which takes a time <code class="docutils literal notranslate"><span class="pre">t</span></code> for each frame of the sound and renders the
 Numpy array data of the sound for each frame. Only defined if the sound has
 been created an interpolator function.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.metadata">
-<code class="sig-name descname"><span class="pre">metadata</span></code><em class="property"> <span class="pre">dict</span></em><a class="headerlink" href="#waves.Sound.metadata" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"> <span class="pre">dict</span></em><a class="headerlink" href="#waves.Sound.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary with metadata about the sound.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.data">
-<code class="sig-name descname"><span class="pre">data</span></code><em class="property"><span class="pre">:</span> <span class="pre">np.ndarray</span></em><a class="headerlink" href="#waves.Sound.data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="pre">:</span> <span class="pre">np.ndarray</span></em><a class="headerlink" href="#waves.Sound.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numpy data array of the sound. If the sound is stereo, returns one Numpy
 array per channel, but if the sound is mono returns one Numpy array with
 the values of the sound for the channel.</p>
 </dd></dl>
 <dl class="py attribute">
-<dt id="waves.Sound.dataframes">
-<code class="sig-name descname"><span class="pre">dataframes</span></code><em class="property"><span class="pre">:</span> <span class="pre">np.ndarray</span></em><a class="headerlink" href="#waves.Sound.dataframes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.dataframes">
+<span class="sig-name descname"><span class="pre">dataframes</span></span><em class="property"><span class="pre">:</span> <span class="pre">np.ndarray</span></em><a class="headerlink" href="#waves.Sound.dataframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Numpy data array of the sound for each frame. If the sound is stereo,
 returns one Numpy array per frame, but if the sound is mono returns one
 Numpy array with the values of the sound for the channel, one array for
 each frame.</p>
 </dd></dl>
-<dl class="py method">
-<dt id="waves.Sound.iter_dataframes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">iter_dataframes</span></code><a class="headerlink" href="#waves.Sound.iter_dataframes" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="waves.Sound.iter_dataframes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">iter_dataframes</span></span><a class="headerlink" href="#waves.Sound.iter_dataframes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates each frame of the sound data.</p>
 <p>If the sound has beeen built using a generator function and its duration
 hasn’t been set, this will produce an infinite loop.</p>
 </dd></dl>
-<dl class="py method">
-<dt id="waves.Sound.iter_datatimes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">iter_datatimes</span></code><a class="headerlink" href="#waves.Sound.iter_datatimes" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="waves.Sound.iter_datatimes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">iter_datatimes</span></span><a class="headerlink" href="#waves.Sound.iter_datatimes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates each frame of the sound data, yielding a tuple with the
 time of the frame as first value and the data of the sound as second.</p>
 <p>If the sound has beeen built using a generator function and its duration
 hasn’t been set, this will produce an infinite loop.</p>
 </dd></dl>
-<dl class="py method">
-<dt id="waves.Sound.iter_chunks">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">iter_chunks</span></code><a class="headerlink" href="#waves.Sound.iter_chunks" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="waves.Sound.iter_chunks">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">iter_chunks</span></span><a class="headerlink" href="#waves.Sound.iter_chunks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates each chunk of the sound data, being read at the moment
 of yielding.</p>
 <dl class="field-list simple">
@@ -574,8 +575,8 @@ of yielding.</p>
 </dd></dl>
 <hr/>
 <h4 class="centered">WRITERS</h4><dl class="py method">
-<dt id="waves.Sound.save">
-<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffersize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.save" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffersize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves an audio instance to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -590,8 +591,8 @@ file in disk.</p></li>
 </dd></dl>
 <hr/>
 <h4 class="centered">INTERACTIVE</h4><dl class="py method">
-<dt id="waves.Sound.play">
-<code class="sig-name descname"><span class="pre">play</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.play" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.play" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plays a sound using pygame.</p>
 <dl class="simple">
 <dt>wait<span class="classifier">bool or Number, optional</span></dt><dd><p>Waits for the ending of the playing to return. Disable it if you want
@@ -601,8 +602,8 @@ instead of the duration of the sound.</p>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.plot">
-<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.plot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the figure that represents the sound using matplotlib.</p>
 <dl class="simple">
 <dt>show<span class="classifier">bool, optional</span></dt><dd><p>Shows the figure using <code class="docutils literal notranslate"><span class="pre">plt.show</span></code>.</p>
@@ -610,8 +611,8 @@ instead of the duration of the sound.</p>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt id="waves.Sound.figure">
-<code class="sig-name descname"><span class="pre">figure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Sound</span> <span class="pre">data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.figure" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="waves.Sound.figure">
+<span class="sig-name descname"><span class="pre">figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Sound</span> <span class="pre">data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#waves.Sound.figure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a basic matplotlib figure with the channels of the sound plotted.</p>
 <dl class="simple">
 <dt>title<span class="classifier">str, optional</span></dt><dd><p>Figure title.</p>
@@ -619,7 +620,7 @@ instead of the duration of the sound.</p>
 </dl>
 </dd></dl>
 </dd></dl>
-</div>
+</section>
 
       </article>
       <footer>
@@ -669,10 +670,10 @@ instead of the duration of the sound.</p>
       
     </aside>
   </main>
-</div>
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+    <script src="../_static/scripts/main.js"></script>
+    </body>
 </html>
