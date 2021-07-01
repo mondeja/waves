@@ -23,7 +23,7 @@ repos:
           - flake8-absolute-import
         files: \.py$
   - repo: https://github.com/PyCQA/isort
-    rev: 5.8.0
+    rev: 5.9.1
     hooks:
       - id: isort
         args:
