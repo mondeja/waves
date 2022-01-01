@@ -3,3 +3,4 @@
 /__main__.py
 /dist/
 /build/
+*.egg-info
